@@ -1,0 +1,6 @@
+<h1>Create a chatroom</h1>
+
+<%= simple_form_for @chatroom do |f| %>
+  <%= f.input :topic, required: true, placeholder: 'Name your chatroom' %>
+  <%= f.button :submit, 'Create chatroom' %>
+<% end %>

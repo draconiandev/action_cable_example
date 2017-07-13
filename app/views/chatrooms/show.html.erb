@@ -1,0 +1,14 @@
+<h1><%= @chatroom.topic %></h1>
+<% @chatroom.messages.each do |message| %>
+  <div class="message">
+    <span> <%= message.user.username %> </span>
+    <span> <%= message.content %> </span>
+  </div>
+<% end %>
+
+<%= simple_form_for @message do |f| %>
+  <%= f.input :content, required: true %>
+  <%= f.input :chatroom_id, input_html: { value: @chatroom.id }, as: :hidden %>
+  <%= f.input :user_id, input_html: { value: current_user.id }, as: :hidden %>
+  <%= f.button :submit, 'Send Message' %>
+<% end %>

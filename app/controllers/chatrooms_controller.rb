@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ChatroomsController < ApplicationController
-  before_action :authenticate!
+  before_action :authenticate_user!
   before_action :find_chatroom, only: %i[show destroy]
 
   def index
